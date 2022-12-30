@@ -1,0 +1,16 @@
+<div th:fragment="film-list">
+    <h1>Films</h1>
+    <table>
+        <thead>
+            <td>Name</td>
+            <td>Release date</td>
+            <td>Duration</td>
+        </thead>
+        <tbody>
+            <tr th:each="film : ${films}">
+                <td th:text="${film.name}"></td>
+                <td th:text="${film.releaseDate}"></td>
+                <td th:text="${film.duration}"></td>
+            </tr>
+        </tbody>
+</div>

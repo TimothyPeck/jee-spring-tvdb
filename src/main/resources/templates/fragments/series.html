@@ -1,0 +1,18 @@
+<div th:fragment="series-list">
+    <h1>Series List</h1>
+    <table>
+        <thead>
+            <td>Name</td>
+            <td>Release date</td>
+            <td>Seasons</td>
+            <td>Episodes</td>
+        </thead>
+        <tbody>
+            <tr th:each="series : ${series}">
+                <td th:text="${series.name}"></td>
+                <td th:text="${series.releaseDate}"></td>
+                <td th:text="${series.seasons}"></td>
+                <td th:text="${series.episodes}"></td>
+            </tr>
+    </table>
+</div>
