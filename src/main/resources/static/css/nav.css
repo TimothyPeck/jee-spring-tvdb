@@ -1,0 +1,21 @@
+nav{
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem;
+    background-color: var(--clr-accent-blue);
+    color: var(--clr-text);
+}
+
+nav>a{
+    color: var(--clr-text);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

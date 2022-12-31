@@ -1,0 +1,24 @@
+:root{
+    --clr-bg: #001524;
+    --clr-heading: #ffecd1;
+    --clr-text: #f1faee;
+    --clr-accent-blue: #15616d;
+    --clr-accent-orange: #ff7d00;
+    --clr-accent-rust: #78290f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: var(--clr-bg);
+}
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--clr-text);
+}
+
+h1,h2,h3,h4{
+    color: var(--clr-heading) ;
+    font-weight: bold;
+}
