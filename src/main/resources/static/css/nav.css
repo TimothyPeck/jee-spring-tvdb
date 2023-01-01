@@ -38,14 +38,19 @@ nav>.nav-section>a:focus {
 
 nav>#nav-logo-section {
     flex-basis: calc(100%/5);
-    justify-content: flex-start;
-
+    justify-content: center;
+    max-height: 75px;
 }
 
 #nav-logo {
-    aspect-ratio: 3/1;
+    background: linear-gradient(to right, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 25%, rgba(253, 114, 39, 1) 50%, rgba(253, 29, 29, 1) 75%, rgba(131, 58, 180, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
     border-left: none;
-    max-height: 50px;
+    font-size: 4rem;
+    color: transparent;
+    user-select: none;
+    letter-spacing: 1rem;
 }
 
 nav>#nav-links-section {
