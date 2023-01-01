@@ -1,14 +1,14 @@
 <nav th:fragment="navbar">
-    <div class="logo-section" id="nav-logo-section">
+    <div class="nav-section" id="nav-logo-section">
         <img th:src="@{/images/logo.png}" alt="logo" id="nav-logo">
     </div>
-    <div class="nav-links" id="nav-links">
+    <div class="nav-section" id="nav-links-section">
         <a href="/">Home</a>
         <a href="/series">Series</a>
         <a href="/films">Films</a>
         <a href="/about">About</a>
     </div>
-    <div class="nav-login" id="nav-login-section">
-        <a href="/login">Login</a>
+    <div class="nav-section" id="nav-login-section">
+        <a href="/login">Login <i class="fa-solid fa-right-to-bracket"></i></a>
     </div>
 </nav>

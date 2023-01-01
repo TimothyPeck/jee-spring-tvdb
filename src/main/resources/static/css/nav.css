@@ -1,19 +1,63 @@
-nav{
+nav {
+    --border-size: 2px;
     position: sticky;
     top: 0;
     left: 0;
     height: -moz-fit-content;
     height: fit-content;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    padding: 1rem;
     background-color: var(--clr-accent-blue);
     color: var(--clr-text);
+    border-bottom: var(--border-size) solid var(--clr-accent-border);
+    font-variant: small-caps;
 }
 
-nav>a{
+nav>.nav-section {
+    /* padding: 2rem 3rem; */
+    display: flex;
+    gap: 1rem;
+    border-left: var(--border-size) solid var(--clr-accent-border);
+    align-items: center;
+    justify-content: center;
+}
+
+nav>.nav-section>a {
+    color: var(--clr-text);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+nav>.nav-section>a:hover,
+nav>.nav-section>a:focus {
+    color: var(--clr-heading);
+    text-decoration: underline;
+    /* font-size: 1.1rem; */
+    transform: scale(1.1);
+}
+
+nav>#nav-logo-section {
+    flex-basis: calc(100%/5);
+    justify-content: flex-start;
+
+}
+
+#nav-logo {
+    aspect-ratio: 3/1;
+    border-left: none;
+    max-height: 50px;
+}
+
+nav>#nav-links-section {
+    flex-basis: calc(3*100%/5);
+    justify-content: space-evenly;
+}
+
+nav>#nav-login-section {
+    flex-grow: 1;
+}
+
+nav>a {
     color: var(--clr-text);
     text-decoration: none;
     font-size: 1.2rem;

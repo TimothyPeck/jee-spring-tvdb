@@ -1,16 +1,21 @@
-<div th:fragment="film-list">
-    <h1>Films</h1>
+<div th:fragment="film-list" class="film-series-container">
+    <h1>Films List</h1>
     <table>
         <thead>
-            <td>Name</td>
-            <td>Release date</td>
-            <td>Duration</td>
+            <td class="table-left-col">Name</td>
+            <td class="table-middle-col">Release date</td>
+            <td class="table-right-col">Duration</td>
         </thead>
         <tbody>
             <tr th:each="film : ${films}">
-                <td th:text="${film.name}"></td>
-                <td th:text="${film.releaseDate}"></td>
-                <td th:text="${film.duration}"></td>
+                <td th:text="${film.name}" class="table-left-col"></td>
+                <td th:text="${film.releaseDate}" class="table-middle-col"></td>
+                <td th:text="${film.duration}" class="table-right-col"></td>
+            </tr>
+            <tr>
+                <td class="table-left-col">Wolf Of Wall Street</td>
+                <td class="table-middle-col">2012</td>
+                <td class="table-right-col">2h34</td>
             </tr>
         </tbody>
     </table>
