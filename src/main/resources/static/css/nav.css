@@ -12,7 +12,7 @@ nav {
     font-variant: small-caps;
 }
 
-nav>.nav-section {
+.nav-section {
     /* padding: 2rem 3rem; */
     display: flex;
     gap: 1rem;
@@ -21,29 +21,29 @@ nav>.nav-section {
     justify-content: center;
 }
 
-nav>.nav-section>a {
+.nav-section>a {
     color: var(--clr-text);
     text-decoration: none;
     font-size: 1rem;
     transition: all 0.2s ease-in-out;
 }
 
-nav>.nav-section>a:hover,
-nav>.nav-section>a:focus {
+.nav-section>a:hover,
+.nav-section>a:focus {
     color: var(--clr-heading);
     text-decoration: underline;
     /* font-size: 1.1rem; */
     transform: scale(1.1);
 }
 
-nav>#nav-logo-section {
+#nav-logo-section {
     flex-basis: calc(100%/5);
     justify-content: center;
     max-height: 75px;
 }
 
 #nav-logo {
-    background: linear-gradient(to right, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 25%, rgba(253, 114, 39, 1) 50%, rgba(253, 29, 29, 1) 75%, rgba(131, 58, 180, 1) 100%);
+    background: linear-gradient(to right, var(--clr-gradient-1) 0%, var(--clr-gradient-2) 25%, var(--clr-gradient-3) 50%, var(--clr-gradient-2) 75%, var(--clr-gradient-1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     border-left: none;
@@ -53,12 +53,12 @@ nav>#nav-logo-section {
     letter-spacing: 1rem;
 }
 
-nav>#nav-links-section {
+#nav-links-section {
     flex-basis: calc(3*100%/5);
     justify-content: space-evenly;
 }
 
-nav>#nav-login-section {
+#nav-login-section {
     flex-grow: 1;
 }
 
@@ -67,4 +67,34 @@ nav>a {
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+@media screen and (max-width: 748px) {
+
+    nav,
+    nav>.nav-section {
+        flex-direction: column;
+    }
+
+    #nav-logo-section {
+        flex-basis: 100%;
+        justify-content: center;
+        max-height: 1.6rem;
+    }
+
+    #nav-logo {
+        font-size: 1.5rem;
+        letter-spacing: 0.5rem;
+    }
+
+    #nav-links-section,
+    #nav-login-section {
+        line-height: 1.1rem;
+        margin-top: 0.3rem;
+    }
+
+    #nav-login-section {
+        margin-top: 0.5rem;
+        margin-bottom: 0.3rem;
+    }
 }

@@ -11,3 +11,50 @@ footer{
     width: 100%;
     margin-top: 5rem;
 }
+
+.footer-img-container{
+    flex-basis: calc(100%/5);
+    justify-content: flex-start;
+}
+
+.footer-center-container{
+    flex-basis: calc(4*100%/5);
+    justify-content: center;
+}
+
+.footer-right-container{
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.footer-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-img{
+    max-height: 75px;
+}
+
+.footer-header{
+    color: var(--clr-bg);
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.footer-text{
+    color: var(--clr-bg);
+    font-size: 1rem;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 748px){
+    footer{
+        flex-direction: column;
+    }
+}

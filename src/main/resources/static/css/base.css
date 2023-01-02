@@ -6,6 +6,9 @@
     --clr-accent-orange: rgb(255, 125, 0);
     --clr-accent-rust: rgb(120, 41, 15);
     --clr-accent-border: rgba(255, 123, 0, 0.337);
+    --clr-gradient-1: rgb(131, 58, 180);
+    --clr-gradient-2: rgb(253, 29, 29);
+    --clr-gradient-3: rgb(253, 114, 39);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 300;

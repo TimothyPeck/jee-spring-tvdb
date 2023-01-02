@@ -12,4 +12,11 @@ public class IndexController {
         //return "";
         return "tvdb-index";
     }
+
+    @GetMapping(value = {"/about"})
+    public String showAboutPage(Model model) {
+        System.out.println("IndexController.showAboutPage() called");
+        //return "";
+        return "tvdb-about";
+    }
 }
