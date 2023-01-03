@@ -78,6 +78,26 @@
     justify-content: center;
 }
 
+.form-select {
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+    margin-inline: auto;
+    width: 100%;
+    border-radius: 0.4rem;
+    color: black;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 3px solid var(--clr-accent-blue);
+    cursor: text;
+    justify-self: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-select:hover,
+.form-select:focus {
+    border: 3px solid var(--clr-accent-orange);
+}
+
 .btn {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -126,7 +146,7 @@
 }
 
 footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
@@ -147,9 +167,5 @@ footer {
     .form-btn-container,
     .form-link-container {
         width: 100%;
-    }
-
-    footer {
-        position: relative;
     }
 }

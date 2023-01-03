@@ -35,3 +35,41 @@
 .table-middle-col {
     text-align: center;
 }
+
+.add-film-container,
+.add-series-container {
+    margin-top: 1rem;
+    margin-inline: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.btn {
+    display: flex;
+    position: relative;
+    margin-bottom: 1rem;
+    margin-inline: auto;
+    width: 50%;
+    border-radius: 0.7rem;
+    background-color: var(--clr-accent-rust);
+    color: var(--clr-text);
+    font-size: 1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    height: 3rem;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--clr-accent-orange);
+    color: var(--clr-bg);
+}

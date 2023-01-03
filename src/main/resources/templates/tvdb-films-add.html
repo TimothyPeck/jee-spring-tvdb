@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVDB - Add film</title>
+    <script src="https://kit.fontawesome.com/957e86b231.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+</head>
+
+<body>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+    <main>
+        <div class="container">
+            <div class="login-container">
+                <form action="add-film" method="post" class="login-form">
+                    <h1 class="login-header">
+                        Add film
+                    </h1>
+                    <div class="form-input-container">
+                        <div class="input-group">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" name="title" id="title" class="form-input">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="release_date" class="form-label">Release date</label>
+                            <input type="date" name="release_date" id="release_date" class="form-input">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="length" class="form-label">Release date</label>
+                            <input type="time" name="length" id="length" class="form-input">
+                        </div>
+                        <div class="input-group">
+                            <label for="site" class="form-label">Site</label>
+                            <select name="site" id="site" class="form-select">
+                                <option value="-1">None</option>
+                                <option th:each="site: ${sites}" value="${site.id}" th:text="${site.name}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-btn-container">
+                        <button type="submit" class="btn btn-submit">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+
+</html>

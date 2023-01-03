@@ -10,6 +10,7 @@ nav {
     color: var(--clr-text);
     border-bottom: var(--border-size) solid var(--clr-accent-border);
     font-variant: small-caps;
+    z-index: 100;
 }
 
 .nav-section {

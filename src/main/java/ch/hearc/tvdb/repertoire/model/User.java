@@ -1,9 +1,9 @@
 package ch.hearc.tvdb.repertoire.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class User {
@@ -12,7 +12,7 @@ public class User {
     private Long id;
 
     private String username;
-    private String password_hash;
+    private String user_password;
     private String email;
 
     public Long getId() {
@@ -25,6 +25,14 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getUser_password() {
+        return user_password;
+    }
+
+    public void setUser_password(String user_password) {
+        this.user_password = user_password;
     }
 
     public void setId(Long id) {
