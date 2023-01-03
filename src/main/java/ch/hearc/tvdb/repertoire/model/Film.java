@@ -1,14 +1,14 @@
 package ch.hearc.tvdb.repertoire.model;
 
 import java.sql.Date;
-import java.sql.Time;
 import java.util.Objects;
 
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Film {
@@ -20,13 +20,16 @@ public class Film {
     private Date release_date;
     private int duration_minutes;
 
-    @Embedded
+    @ManyToOne
+    @JoinColumn(name = "director_id", nullable = false)
     private Director director;
 
-    @Embedded
+    @ManyToOne
+    @JoinColumn(name = "site_id", nullable = false)
     private Site site;
 
-    @Embedded
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public Director getDirector() {
@@ -108,7 +111,7 @@ public class Film {
         this.user = user;
     }
 
-    public Time getDuration() {
-        return new Time(duration_minutes * 60 * 1000);
+    public String getDuration() {
+        return String.format("%02d:%02d", duration_minutes / 60, duration_minutes % 60);
     }
 }

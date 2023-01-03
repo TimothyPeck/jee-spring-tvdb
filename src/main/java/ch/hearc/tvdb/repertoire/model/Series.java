@@ -1,12 +1,14 @@
 package ch.hearc.tvdb.repertoire.model;
 
 import java.sql.Date;
+import java.util.Objects;
 
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Series {
@@ -19,10 +21,12 @@ public class Series {
     private int seasons;
     private int episodes;
 
-    @Embedded
+    @ManyToOne
+    @JoinColumn(name = "site_id", nullable = false)
     private Site site;
 
-    @Embedded
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public Long getId() {
@@ -79,5 +83,24 @@ public class Series {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(episodes, id, name, release_date, seasons, site, user);
+    }
+
+    @Override
+    public boolean equals(Object arg0) {
+        if (this == arg0)
+            return true;
+        if (arg0 == null)
+            return false;
+        if (getClass() != arg0.getClass())
+            return false;
+        Series other = (Series) arg0;
+        return episodes == other.episodes && Objects.equals(id, other.id) && Objects.equals(name, other.name)
+                && Objects.equals(release_date, other.release_date) && seasons == other.seasons
+                && Objects.equals(site, other.site) && Objects.equals(user, other.user);
     }
 }

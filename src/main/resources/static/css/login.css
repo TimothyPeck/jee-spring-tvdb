@@ -1,0 +1,155 @@
+.login-container {
+    background-color: var(--clr-accent-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-inline: auto;
+    width: 50%;
+    display: flex;
+    margin-top: 5rem;
+    justify-content: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+.login-header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 4rem;
+    margin-top: 0;
+    width: 100%;
+    border-bottom: 3px solid var(--clr-accent-orange);
+}
+
+.form-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.input-group {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 75%;
+}
+
+.input-group>label {
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+    color: var(--clr-heading);
+    width: 100%;
+    border-bottom: 2px solid var(--clr-accent-blue);
+}
+
+.input-group>input {
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+    margin-inline: auto;
+    width: 100%;
+    border-radius: 0.4rem;
+    color: black;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 3px solid var(--clr-accent-blue);
+    cursor: text;
+    justify-self: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-group>input:focus {
+    border: 3px solid var(--clr-accent-orange);
+}
+
+.form-btn-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-inline: auto;
+    width: 50%;
+    border-radius: 0.7rem;
+    background-color: var(--clr-accent-rust);
+    color: var(--clr-text);
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    justify-self: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--clr-accent-orange);
+}
+
+.form-link-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+.form-link-container>p {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    justify-self: center;
+    align-self: center;
+    font-size: 1rem;
+}
+
+.form-register-link {
+    color: var(--clr-accent-orange);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-register-link:hover,
+.form-register-link:focus {
+    color: var(--clr-heading);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.is-valid {
+    outline: 3px solid rgba(72, 255, 0, 0.7);
+}
+
+.is-invalid {
+    outline: 3px solid rgba(255, 38, 0, 0.7);
+}
+
+@media screen and (max-width: 748px) {
+
+    .login-container,
+    .login-form,
+    .input-group,
+    .form-input-container,
+    .form-btn-container,
+    .form-link-container {
+        width: 100%;
+    }
+
+    footer {
+        position: relative;
+    }
+}
