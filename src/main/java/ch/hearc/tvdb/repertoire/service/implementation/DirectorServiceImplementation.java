@@ -38,45 +38,13 @@ public class DirectorServiceImplementation implements DirectorService {
         directorRepository.save(director);
     }
 
-    public void seedDirectors() {
-        List<String> directorNames = new ArrayList<String>();
-        directorNames.add("Steven Spielberg");
-        directorNames.add("James Cameron");
-        directorNames.add("Christopher Nolan");
-        directorNames.add("Quentin Tarantino");
-        directorNames.add("Martin Scorsese");
-        directorNames.add("Stanley Kubrick");
-        directorNames.add("Alfred Hitchcock");
-        directorNames.add("David Fincher");
-        directorNames.add("Francis Ford Coppola");
-        directorNames.add("Peter Jackson");
-        directorNames.add("George Lucas");
-        directorNames.add("Ridley Scott");
-        directorNames.add("Robert Zemeckis");
-        directorNames.add("Tim Burton");
-        directorNames.add("Clint Eastwood");
-        directorNames.add("Sergio Leone");
-        directorNames.add("John Ford");
-        directorNames.add("Akira Kurosawa");
-        directorNames.add("Ingmar Bergman");
-        directorNames.add("Orson Welles");
-        directorNames.add("Federico Fellini");
-        directorNames.add("Roman Polanski");
-        directorNames.add("Wes Anderson");
-        directorNames.add("Hayao Miyazaki");
-        directorNames.add("David Lynch");
-        directorNames.add("Woody Allen");
-        directorNames.add("Paul Thomas Anderson");
-        directorNames.add("Joel Coen");
-        directorNames.add("Ethan Coen");
-        directorNames.add("John Carpenter");
-        directorNames.add("Sam Raimi");
-        directorNames.add("John Huston");
+    @Override
+    public void deleteDirector(Director director) {
+        directorRepository.delete(director);
+    }
 
-        for (String directorName : directorNames) {
-            Director director = new Director();
-            director.setName(directorName);
-            directorRepository.save(director);
-        }
+    @Override
+    public void deleteDirectorById(Long id) {
+        directorRepository.deleteById(id);
     }
 }

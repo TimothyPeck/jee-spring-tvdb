@@ -34,4 +34,14 @@ public class SitesServiceImplementation implements SitesService {
     public void addSite(Site site) {
         siteRepository.save(site);
     }
+
+    @Override
+    public void deleteSite(Site site) {
+        siteRepository.delete(site);
+    }
+
+    @Override
+    public void deleteSiteById(Long id) {
+        siteRepository.deleteById(id);
+    }
 }

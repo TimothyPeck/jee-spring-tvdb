@@ -1,0 +1,21 @@
+<div th:fragment="director-list" class="film-series-container">
+    <h1>Director list</h1>
+    <table>
+        <thead>
+            <tr>
+                <td class="table-left-col">Name</td>
+                <td class="table-right-col table-edit-col">Edit</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="director: ${directors}">
+                <td th:text="${director.name}" class="table-left-col"></td>
+                <td class="table-right-col table-edit-col"><a th:href="@{/directors/edit/{id}(id=${director.id})}"
+                        class="btn edit-btn">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="add-film-container" id="add-film-container">
+        <a href="directors/add-director" class="btn add-btn" id="btn-add-director">Add a director</a>
+    </div>
+</div>

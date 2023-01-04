@@ -44,4 +44,9 @@ public class FilmsServiceImplementation implements FilmsService {
         return film;
     }
 
+    @Override
+    public void deleteFilm(Film film) {
+        filmRepository.delete(film);
+    }
+
 }

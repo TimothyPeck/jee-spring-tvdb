@@ -14,4 +14,6 @@ public interface SeriesService {
     public void deleteSeriesById(Long id);
 
     public Series updateSeries(Series series);
+
+    public void deleteSeries(Series series);
 }

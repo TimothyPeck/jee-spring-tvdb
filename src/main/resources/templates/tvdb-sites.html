@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVDB</title>
+    <title>TVDB - Sites</title>
     <script src="https://kit.fontawesome.com/957e86b231.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
@@ -17,13 +17,9 @@
     <nav th:replace="~{fragments/navbar :: navbar}"></nav>
     <main>
         <div class="container">
-            <div class="button-container">
-                <a href="/director" class="btn add-btn">Directors</a>
-                <a href="/site" class="btn add-btn">Site</a>
-            </div>
-            <div th:replace="~{fragments/series :: series-list}"></div>
-            <div th:replace="~{fragments/film :: film-list}"></div>
+            <div th:replace="~{fragments/site :: site-list}"></div>
         </div>
+
     </main>
     <footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>

@@ -60,22 +60,25 @@ public class FilmController {
         return "redirect:/films";
     }
 
-    @GetMapping(value = { "/films/edit" })
-    public String showEditFilmPage() {
-        System.out.println("FilmController.showEditFilmPage() called");
+    @GetMapping(value = { "/films/edit/{id}" })
+    public String showEditFilmPage(@ModelAttribute Film film, Model model) {
+        model.addAttribute("film", filmService.getFilmById(film.getId()));
+        model.addAttribute("sites", siteService.getAllSites());
+        model.addAttribute("directors", directorService.getAllDirectors());
         return "tvdb-films-edit";
     }
 
-    @GetMapping(value = { "/films/delete" })
-    public String showDeleteFilmPage() {
-        System.out.println("FilmController.showDeleteFilmPage() called");
-        return "tvdb-films-delete";
+    @PostMapping(value = { "/films/edit-film" })
+    public String editFilm(@ModelAttribute Film film, @RequestParam String director, @RequestParam String site) {
+        Director d = directorService.getDirectorById(Long.valueOf(director));
+        Site s = siteService.getSiteById(Long.valueOf(site));
+        TvdbUser u = tvdbUsersService.getUserById(1L);
+        film.setDirector(d);
+        film.setSite(s);
+        film.setUser(u);
+        filmService.deleteFilm(film);
+        filmService.addFilm(film);
+        return "redirect:/films";
     }
 
-    @GetMapping(value = { "/films/details" })
-    public String showDetailsFilmPage() {
-        System.out.println("FilmController.showDetailsFilmPage() called");
-        return "tvdb-films-details";
-    }
-
-    }
+}

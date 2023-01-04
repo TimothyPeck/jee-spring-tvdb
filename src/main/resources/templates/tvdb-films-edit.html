@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVDB - Add series</title>
+    <title>TVDB - Edit film</title>
     <script src="https://kit.fontawesome.com/957e86b231.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script th:src="@{/js/time_converter.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
@@ -21,35 +22,28 @@
     <main>
         <div class="container">
             <div class="login-container">
-                <form action="#" th:action="@{/series/save-series}" method="post" class="login-form">
+                <form action="#" th:action="@{/films/edit-film}" method="post" class="login-form">
                     <h1 class="login-header">
-                        Add series
+                        Edit film
                     </h1>
                     <div class="form-input-container">
+                        <input type="text" name="id" id="id" th:value="${film.id}" hidden>
                         <div class="input-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" id="name" class="form-input" th:required="required">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" name="title" id="title" class="form-input" th:required="required"
+                                th:value="${film.title}">
                         </div>
 
                         <div class="input-group">
                             <label for="release_date" class="form-label">Release date</label>
                             <input type="date" name="release_date" id="release_date" class="form-input"
-                                th:required="required">
+                                th:required="required" th:valute="${film.release_date}">
                         </div>
 
-                        <div class="multi-input">
-                            <div class="input-group">
-                                <label for="seasons" class="form-label">Seasons</label>
-                                <input type="number" name="seasons" id="seasons" class="form-input"
-                                    th:required="required">
-                            </div>
-                            <div class="input-group">
-                                <label for="episodes" class="form-label">Episodes</label>
-                                <input type="number" name="episodes" id="episodes" class="form-input"
-                                    th:required="required">
-                            </div>
+                        <div class="input-group">
+                            <label for="duration" class="form-label">Film duration</label>
+                            <input type="time" name="duration" id="duration" class="form-input" the:required="required" th:value="${film.duration}">
                         </div>
-
                         <div class="input-group">
                             <label for="site" class="form-label">Site</label>
                             <select name="site" id="site" class="form-select">
@@ -57,7 +51,16 @@
                                 <option th:each="site: ${sites}" th:value="${site.id}" th:text="${site.name}"></option>
                             </select>
                         </div>
+                        <div class="input-group">
+                            <label for="director" class="form-label">Director</label>
+                            <select name="director" id="director" class="form-select">
+                                <option value="-1">None</option>
+                                <option th:each="director: ${directors}" th:value="${director.id}"
+                                    th:text="${director.name}"></option>
+                            </select>
+                        </div>
                     </div>
+                    <input hidden type="number" name="duration_minutes" id="duration_minutes" th:value="${film.duration_minutes}">
                     <div class="form-btn-container">
                         <button type="submit" class="btn btn-submit">Add</button>
                     </div>

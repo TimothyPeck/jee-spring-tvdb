@@ -35,6 +35,9 @@ public class Site {
     }
 
     public void setUrl(String url) {
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+            url = "https://" + url;
+        }
         this.url = url;
     }
 }

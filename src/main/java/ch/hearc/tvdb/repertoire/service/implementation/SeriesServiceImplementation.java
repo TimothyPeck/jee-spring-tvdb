@@ -44,4 +44,9 @@ public class SeriesServiceImplementation implements SeriesService {
         return series;
     }
 
+    @Override
+    public void deleteSeries(Series series) {
+        seriesRepository.delete(series);
+    }
+
 }

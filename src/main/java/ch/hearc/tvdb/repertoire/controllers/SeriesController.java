@@ -52,4 +52,22 @@ public class SeriesController {
         return "redirect:/series";
     }
 
+    @GetMapping(value = "/series/edit/{id}")
+    public String showEditSeriesPage(@ModelAttribute Series series, Model model) {
+        model.addAttribute("series", seriesService.getSeriesById(series.getId()));
+        model.addAttribute("sites", siteService.getAllSites());
+        return "tvdb-series-edit";
+    }
+
+    @PostMapping(value = "/series/edit-series")
+    public String editSeries(@ModelAttribute Series series, @RequestParam int site) {
+        Site s = siteService.getSiteById(Long.valueOf(site));
+        TvdbUser u = tvdbUsersService.getUserById(1L);
+        seriesService.deleteSeries(series);
+        series.setUser(u);
+        series.setSite(s);
+        seriesService.addSeries(series);
+        return "redirect:/series";
+    }
+
 }

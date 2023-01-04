@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVDB - Register</title>
+    <title>TVDB - Add director</title>
     <script src="https://kit.fontawesome.com/957e86b231.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script th:src="@{/js/ui-modifications.js}"></script>
+    <script th:src="@{/js/time_converter.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
@@ -22,26 +22,18 @@
     <main>
         <div class="container">
             <div class="login-container">
-                <form action="create-user" method="post" class="login-form">
+                <form action="#" th:action="@{/directors/save-director}" method="post" class="login-form">
                     <h1 class="login-header">
-                        Login
+                        Add director
                     </h1>
                     <div class="form-input-container">
                         <div class="input-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" id="email" class="form-input">
-                        </div>
-                        <div class="input-group">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" id="password" class="form-input">
-                        </div>
-                        <div class="input-group">
-                            <label for="password-verif" class="form-label">Password verification</label>
-                            <input type="password" name="password-verif" id="password-verif" class="form-input">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" name="name" id="name" class="form-input" th:required="required">
                         </div>
                     </div>
                     <div class="form-btn-container">
-                        <button type="submit" class="btn btn-submit">Create account</button>
+                        <button type="submit" class="btn btn-submit">Add</button>
                     </div>
                 </form>
             </div>

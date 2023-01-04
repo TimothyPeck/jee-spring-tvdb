@@ -10,4 +10,8 @@ public interface SitesService {
     public Site getSiteById(Long id);
 
     public void addSite(Site site);
+
+    public void deleteSite(Site site);
+
+    public void deleteSiteById(Long id);
 }

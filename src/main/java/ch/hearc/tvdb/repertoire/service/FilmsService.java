@@ -14,4 +14,6 @@ public interface FilmsService {
     public void deleteFilmById(Long id);
 
     public Film updateFilm(Film film);
+
+    public void deleteFilm(Film film);
 }

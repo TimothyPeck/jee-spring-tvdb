@@ -93,20 +93,20 @@ public class IndexController {
 
     public void seedSites() {
         Map<String, String> sites = new HashMap<String, String>();
-        sites.put("Netflix", "https://www.netflix.com");
-        sites.put("Amazon Prime", "https://www.amazon.com/Amazon-Video/");
-        sites.put("Hulu", "https://www.hulu.com/welcome");
-        sites.put("Disney+", "https://www.disneyplus.com/");
-        sites.put("HBO Max", "https://www.hbomax.com/");
-        sites.put("Apple TV+", "https://tv.apple.com/");
-        sites.put("Peacock", "https://www.peacocktv.com/");
-        sites.put("CBS All Access", "https://www.cbs.com/all-access/");
-        sites.put("Crunchyroll", "https://www.crunchyroll.com/");
-        sites.put("Funimation", "https://www.funimation.com/");
-        sites.put("AnimeLab", "https://www.animelab.com/");
-        sites.put("YouTube", "https://www.youtube.com/");
-        sites.put("Google Play", "https://play.google.com/store/movies");
-        sites.put("Microsoft Store", "https://www.microsoft.com/en-us/p/movies-tv/9wzdncrfj3t5");
+        sites.put("Netflix", "www.netflix.com");
+        sites.put("Amazon Prime", "www.amazon.com/Amazon-Video/");
+        sites.put("Hulu", "www.hulu.com/welcome");
+        sites.put("Disney+", "www.disneyplus.com/");
+        sites.put("HBO Max", "www.hbomax.com/");
+        sites.put("Apple TV+", "tv.apple.com/");
+        sites.put("Peacock", "www.peacocktv.com/");
+        sites.put("CBS All Access", "www.cbs.com/all-access/");
+        sites.put("Crunchyroll", "www.crunchyroll.com/");
+        sites.put("Funimation", "www.funimation.com/");
+        sites.put("AnimeLab", "www.animelab.com/");
+        sites.put("YouTube", "www.youtube.com/");
+        sites.put("Google Play", "play.google.com/store/movies");
+        sites.put("Microsoft Store", "www.microsoft.com/en-us/p/movies-tv/9wzdncrfj3t5");
         sites.put("Torrent", "google.com/search?q=torrents");
         sites.put("Other", "google.com/search?q=streaming+sites");
 

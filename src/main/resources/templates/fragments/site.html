@@ -1,0 +1,23 @@
+<div th:fragment="site-list" class="film-series-container">
+    <h1>Site list</h1>
+    <table>
+        <thead>
+            <tr>
+                <td class="table-left-col">Name</td>
+                <td class="table-middle-col">URL</td>
+                <td class="table-right-col table-edit-col">Edit</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="site: ${sites}">
+                <td th:text="${site.name}" class="table-left-col"></td>
+                <td class="table-middle-col"><a th:href="${site.url}" th:text="${site.url}" target="_blank"></a></td>
+                <td class="table-right-col table-edit-col"><a th:href="@{/site/edit/{id}(id=${site.id})}"
+                        class="btn edit-btn">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="add-film-container">
+        <a href="site/add-site" class="btn add-btn">Add a site</a>
+    </div>
+</div>

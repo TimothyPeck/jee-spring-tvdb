@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVDB - Add series</title>
+    <title>TVDB - Add site</title>
     <script src="https://kit.fontawesome.com/957e86b231.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script th:src="@{/js/time_converter.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
@@ -21,41 +22,18 @@
     <main>
         <div class="container">
             <div class="login-container">
-                <form action="#" th:action="@{/series/save-series}" method="post" class="login-form">
+                <form action="#" th:action="@{/site/save-site}" method="post" class="login-form">
                     <h1 class="login-header">
-                        Add series
+                        Add site
                     </h1>
                     <div class="form-input-container">
                         <div class="input-group">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" name="name" id="name" class="form-input" th:required="required">
                         </div>
-
                         <div class="input-group">
-                            <label for="release_date" class="form-label">Release date</label>
-                            <input type="date" name="release_date" id="release_date" class="form-input"
-                                th:required="required">
-                        </div>
-
-                        <div class="multi-input">
-                            <div class="input-group">
-                                <label for="seasons" class="form-label">Seasons</label>
-                                <input type="number" name="seasons" id="seasons" class="form-input"
-                                    th:required="required">
-                            </div>
-                            <div class="input-group">
-                                <label for="episodes" class="form-label">Episodes</label>
-                                <input type="number" name="episodes" id="episodes" class="form-input"
-                                    th:required="required">
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="site" class="form-label">Site</label>
-                            <select name="site" id="site" class="form-select">
-                                <option value="-1">None</option>
-                                <option th:each="site: ${sites}" th:value="${site.id}" th:text="${site.name}"></option>
-                            </select>
+                            <label for="url" class="form-label">URL</label>
+                            <input type="url" name="url" id="url" class="form-input" th:required="required">
                         </div>
                     </div>
                     <div class="form-btn-container">

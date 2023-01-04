@@ -45,6 +45,10 @@
     text-align: center;
 }
 
+.table-edit-col{
+    min-width: 5rem;
+}
+
 .add-film-container,
 .add-series-container {
     margin-top: 1rem;
@@ -81,4 +85,33 @@
 .btn:focus {
     background-color: var(--clr-accent-orange);
     color: var(--clr-bg);
+}
+
+.edit-btn {
+    background-color: var(--clr-accent-orange) !important;
+    color: var(--clr-bg) !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0.5rem;
+    height: 2.2rem;
+    width: 100%;
+}
+
+.edit-btn:hover,
+.edit-btn:focus {
+    background-color: var(--clr-accent-rust) !important;
+    color: var(--clr-text) !important;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    justify-content: center;
+    gap: 6rem;
+    width: 50%;
+    margin-inline: auto;
 }
