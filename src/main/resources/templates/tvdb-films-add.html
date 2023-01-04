@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVDB - Add film</title>
     <script src="https://kit.fontawesome.com/957e86b231.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script th:src="@{/js/time_converter.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
@@ -19,33 +22,45 @@
     <main>
         <div class="container">
             <div class="login-container">
-                <form action="add-film" method="post" class="login-form">
+                <form action="#" th:action="@{/films/save-film}" method="post" class="login-form">
                     <h1 class="login-header">
                         Add film
                     </h1>
                     <div class="form-input-container">
                         <div class="input-group">
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" name="title" id="title" class="form-input">
+                            <input type="text" name="title" id="title" class="form-input" th:required="required">
                         </div>
 
                         <div class="input-group">
                             <label for="release_date" class="form-label">Release date</label>
-                            <input type="date" name="release_date" id="release_date" class="form-input">
+                            <input type="date" name="release_date" id="release_date" class="form-input"
+                                th:required="required">
                         </div>
 
                         <div class="input-group">
-                            <label for="length" class="form-label">Release date</label>
-                            <input type="time" name="length" id="length" class="form-input">
+                            <label for="duration" class="form-label">Film duration</label>
+                            <input type="time" name="duration" id="duration" class="form-input"
+                                the:required="required">
                         </div>
                         <div class="input-group">
                             <label for="site" class="form-label">Site</label>
                             <select name="site" id="site" class="form-select">
                                 <option value="-1">None</option>
+                                <!-- <option value="1">Netflix</option> -->
                                 <option th:each="site: ${sites}" value="${site.id}" th:text="${site.name}"></option>
                             </select>
                         </div>
+                        <div class="input-group">
+                            <label for="director" class="form-label">Director</label>
+                            <select name="director" id="director" class="form-select">
+                                <option value="-1">None</option>
+                                <option th:each="director: ${directors}" value="${director.id}"
+                                    th:text="${director.name}"></option>
+                            </select>
+                        </div>
                     </div>
+                    <input hidden type="number" name="duration_minutes" id="duration_minutes">
                     <div class="form-btn-container">
                         <button type="submit" class="btn btn-submit">Add</button>
                     </div>

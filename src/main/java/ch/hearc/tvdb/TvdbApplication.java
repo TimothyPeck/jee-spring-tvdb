@@ -7,9 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TvdbApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Before SpringApplication.run");
 		SpringApplication.run(TvdbApplication.class, args);
-		System.out.println("After SpringApplication.run");
 	}
 
 }

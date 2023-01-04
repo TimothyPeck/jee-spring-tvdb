@@ -27,7 +27,7 @@ public class Series {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private TvdbUser user;
 
     public Long getId() {
         return id;
@@ -53,7 +53,7 @@ public class Series {
         return site;
     }
 
-    public User getUser() {
+    public TvdbUser getUser() {
         return user;
     }
 
@@ -81,7 +81,7 @@ public class Series {
         this.site = site;
     }
 
-    public void setUser(User user) {
+    public void setUser(TvdbUser user) {
         this.user = user;
     }
 

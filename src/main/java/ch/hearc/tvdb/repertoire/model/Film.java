@@ -1,6 +1,7 @@
 package ch.hearc.tvdb.repertoire.model;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ public class Film {
 
     private String title;
     private Date release_date;
-    private int duration_minutes;
+    private Time duration_minutes;
 
     @ManyToOne
     @JoinColumn(name = "director_id", nullable = false)
@@ -30,7 +31,7 @@ public class Film {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private TvdbUser user;
 
     public Director getDirector() {
         return director;
@@ -67,7 +68,7 @@ public class Film {
         return id;
     }
 
-    public int getDuration_minutes() {
+    public Time getDuration_minutes() {
         return duration_minutes;
     }
 
@@ -83,7 +84,7 @@ public class Film {
         return title;
     }
 
-    public User getUser() {
+    public TvdbUser getUser() {
         return user;
     }
 
@@ -92,7 +93,7 @@ public class Film {
     }
 
     public void setDuration_minutes(int duration_minutes) {
-        this.duration_minutes = duration_minutes;
+        this.duration_minutes = new Time(duration_minutes * 60 * 1000);
     }
 
     public void setRelease_date(Date release_date) {
@@ -107,11 +108,11 @@ public class Film {
         this.title = title;
     }
 
-    public void setUser(User user) {
+    public void setUser(TvdbUser user) {
         this.user = user;
     }
 
     public String getDuration() {
-        return String.format("%02d:%02d", duration_minutes / 60, duration_minutes % 60);
+        return duration_minutes.toString();
     }
 }
