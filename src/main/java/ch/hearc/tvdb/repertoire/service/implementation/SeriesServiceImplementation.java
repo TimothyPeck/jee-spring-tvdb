@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import ch.hearc.tvdb.repertoire.model.Series;
 import ch.hearc.tvdb.repertoire.repository.SeriesRepository;
-import ch.hearc.tvdb.repertoire.repository.SiteRepository;
 import ch.hearc.tvdb.repertoire.service.SeriesService;
 
 @Service
@@ -16,9 +15,6 @@ public class SeriesServiceImplementation implements SeriesService {
 
     @Autowired
     private SeriesRepository seriesRepository;
-
-    @Autowired
-    private SiteRepository siteRepository;
 
     @Override
     public void addSeries(Series series) {

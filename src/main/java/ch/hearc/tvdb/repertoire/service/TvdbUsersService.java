@@ -8,4 +8,6 @@ public interface TvdbUsersService {
     public TvdbUser getUser(String username);
 
     public TvdbUser getUserById(long l);
+
+    public void saveUser(TvdbUser user);
 }

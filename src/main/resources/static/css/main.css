@@ -24,6 +24,15 @@
     min-height: 3rem;
 }
 
+.film-series-container>table>tbody>tr>td {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.film-series-container>table>tbody>tr>td>a {
+    color: var(--clr-accent-orange);
+}
+
 .table-left-col {
     text-align: left;
 }

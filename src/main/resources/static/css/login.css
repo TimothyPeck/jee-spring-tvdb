@@ -158,6 +158,15 @@ footer {
     outline: 3px solid rgba(255, 38, 0, 0.7);
 }
 
+.multi-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75%;
+    gap: 5rem;
+    align-self: center;
+}
+
 @media screen and (max-width: 748px) {
 
     .login-container,
@@ -165,7 +174,8 @@ footer {
     .input-group,
     .form-input-container,
     .form-btn-container,
-    .form-link-container {
+    .form-link-container,
+    .multi-input {
         width: 100%;
     }
 }

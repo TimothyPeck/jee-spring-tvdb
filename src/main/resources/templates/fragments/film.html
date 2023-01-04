@@ -14,14 +14,7 @@
                 <td th:text="${film.release_date}" class="table-middle-col"></td>
                 <td th:text="${film.director.name}" class="table-middle-col"></td>
                 <td th:text="${film.duration}" class="table-middle-col"></td>
-                <td class="table-right-col"><a th:href="${film.site}">Site</a></td>
-            </tr>
-            <tr>
-                <td class="table-left-col">Wolf Of Wall Street</td>
-                <td class="table-middle-col">2012</td>
-                <td class="table-middle-col">2012</td>
-                <td class="table-middle-col">2012</td>
-                <td class="table-right-col">2h34</td>
+                <td class="table-right-col"><a th:href="${film.site.url}" th:text="${film.site.name}"></a></td>
             </tr>
         </tbody>
     </table>

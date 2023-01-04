@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import ch.hearc.tvdb.repertoire.model.Director;
 import ch.hearc.tvdb.repertoire.model.Site;
+import ch.hearc.tvdb.repertoire.model.TvdbUser;
 import ch.hearc.tvdb.repertoire.service.DirectorService;
 import ch.hearc.tvdb.repertoire.service.FilmsService;
 import ch.hearc.tvdb.repertoire.service.SeriesService;
 import ch.hearc.tvdb.repertoire.service.SitesService;
+import ch.hearc.tvdb.repertoire.service.TvdbUsersService;
 
 @Controller
 public class IndexController {
@@ -33,6 +35,9 @@ public class IndexController {
 
     @Autowired
     private SitesService siteService;
+
+    @Autowired
+    private TvdbUsersService tvdbUsersService;
 
     @GetMapping(value = { "/", "home" })
     public String showIndexPage(Model model) {
@@ -54,6 +59,7 @@ public class IndexController {
         System.out.println("Seeding database");
         seedDirectors();
         seedSites();
+        seedUsers();
     }
 
     public void seedDirectors() {
@@ -110,6 +116,14 @@ public class IndexController {
             site.setUrl(entry.getValue());
             siteService.addSite(site);
         }
+    }
+
+    public void seedUsers() {
+        TvdbUser user = new TvdbUser();
+        user.setUsername("admin");
+        user.setUser_password("admin");
+        user.setEmail("admin@tvdb.ch");
+        tvdbUsersService.saveUser(user);
     }
 
 }

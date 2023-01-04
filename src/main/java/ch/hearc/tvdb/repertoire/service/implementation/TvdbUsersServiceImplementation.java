@@ -23,4 +23,9 @@ public class TvdbUsersServiceImplementation implements TvdbUsersService {
         return tvdbUserRepository.findById(l);
     }
 
+    @Override
+    public void saveUser(TvdbUser user) {
+        tvdbUserRepository.save(user);
+    }
+
 }

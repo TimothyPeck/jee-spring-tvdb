@@ -7,21 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ch.hearc.tvdb.repertoire.model.Film;
-import ch.hearc.tvdb.repertoire.repository.DirectorRepository;
 import ch.hearc.tvdb.repertoire.repository.FilmRepository;
-import ch.hearc.tvdb.repertoire.repository.SiteRepository;
 import ch.hearc.tvdb.repertoire.service.FilmsService;
 
 @Service
 public class FilmsServiceImplementation implements FilmsService {
     @Autowired
-    FilmRepository filmRepository;
-
-    @Autowired
-    DirectorRepository directorRepository;
-
-    @Autowired
-    SiteRepository siteRepository;
+    private FilmRepository filmRepository;
 
     @Override
     public void addFilm(Film film) {

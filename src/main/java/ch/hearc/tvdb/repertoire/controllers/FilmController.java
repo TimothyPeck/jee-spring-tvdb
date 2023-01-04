@@ -22,16 +22,16 @@ import ch.hearc.tvdb.repertoire.service.TvdbUsersService;
 public class FilmController {
 
     @Autowired
-    FilmsService filmService;
+    private FilmsService filmService;
 
     @Autowired
-    SitesService siteService;
+    private SitesService siteService;
 
     @Autowired
-    DirectorService directorService;
+    private DirectorService directorService;
 
     @Autowired
-    TvdbUsersService tvdbUsersService;
+    private TvdbUsersService tvdbUsersService;
 
     @GetMapping(value = { "/films" })
     public String showFilmsPage(Model model) {
