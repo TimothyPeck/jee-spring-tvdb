@@ -53,7 +53,6 @@ public class FilmController {
         model.addAttribute("logged", true);
         model.addAttribute("sites", siteService.getAllSites());
         model.addAttribute("directors", directorService.getAllDirectors());
-        System.out.println("FilmController.showAddFilmPage() called");
         return "tvdb-films-add";
     }
 

@@ -44,7 +44,6 @@ public class IndexController {
     @GetMapping(value = { "/", "home" })
     public String showIndexPage(Model model, HttpSession session) {
         TvdbUser user = (TvdbUser) session.getAttribute("user");
-        System.out.println("User: " + user);
         if (user != null) {
             model.addAttribute("logged", true);
             model.addAttribute("films", filmService.getFilmsByUser(user));
@@ -72,7 +71,6 @@ public class IndexController {
 
     @EventListener
     public void seed(ContextRefreshedEvent event) {
-        System.out.println("Seeding database");
         seedDirectors();
         seedSites();
         seedUsers();
