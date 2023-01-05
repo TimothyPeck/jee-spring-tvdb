@@ -12,7 +12,6 @@ import ch.hearc.tvdb.repertoire.model.TvdbUser;
 import ch.hearc.tvdb.repertoire.service.DirectorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class DirectorController {
