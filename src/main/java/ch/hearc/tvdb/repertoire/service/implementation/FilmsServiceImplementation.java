@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ch.hearc.tvdb.repertoire.model.Film;
+import ch.hearc.tvdb.repertoire.model.TvdbUser;
 import ch.hearc.tvdb.repertoire.repository.FilmRepository;
 import ch.hearc.tvdb.repertoire.service.FilmsService;
 
@@ -47,6 +48,11 @@ public class FilmsServiceImplementation implements FilmsService {
     @Override
     public void deleteFilm(Film film) {
         filmRepository.delete(film);
+    }
+
+    @Override
+    public List<Film> getFilmsByUser(TvdbUser user) {
+        return filmRepository.findByUser(user);
     }
 
 }

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
@@ -40,16 +42,30 @@ public class IndexController {
     private TvdbUsersService tvdbUsersService;
 
     @GetMapping(value = { "/", "home" })
-    public String showIndexPage(Model model) {
-        model.addAttribute("films", filmService.getAllFilms());
-        model.addAttribute("series", seriesService.getAllSeries());
+    public String showIndexPage(Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        System.out.println("User: " + user);
+        if (user != null) {
+            model.addAttribute("logged", true);
+            model.addAttribute("films", filmService.getFilmsByUser(user));
+            model.addAttribute("series", seriesService.getSeriesByUser(user));
+        } else {
+            model.addAttribute("logged", false);
+            model.addAttribute("films", filmService.getAllFilms());
+            model.addAttribute("series", seriesService.getAllSeries());
+        }
         // return "";
         return "tvdb-index";
     }
 
     @GetMapping(value = { "/about" })
-    public String showAboutPage(Model model) {
-        System.out.println("IndexController.showAboutPage() called");
+    public String showAboutPage(Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("logged", true);
+        } else {
+            model.addAttribute("logged", false);
+        }
         // return "";
         return "tvdb-about";
     }

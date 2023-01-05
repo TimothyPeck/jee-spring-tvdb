@@ -7,7 +7,7 @@
             <td class="table-middle-col">Director</td>
             <td class="table-middle-col">Duration</td>
             <td class="table-middle-col">Site</td>
-            <td class="table-right-col">Edit</td>
+            <td class="table-right-col" th:if="${logged}">Edit</td>
         </thead>
         <tbody>
             <tr th:each="film : ${films}">
@@ -16,11 +16,11 @@
                 <td th:text="${film.director.name}" class="table-middle-col"></td>
                 <td th:text="${film.duration}" class="table-middle-col"></td>
                 <td class="table-middle-col"><a th:href="${film.site.url}" th:text="${film.site.name}" target="_blank"></a></td>
-                <td class="table-right-col"><a th:href="@{/films/edit/{id}(id=${film.id})}" class="btn edit-btn">Edit</a></td>
+                <td class="table-right-col" th:if="${logged}"><a th:href="@{/films/edit/{id}(id=${film.id})}" class="btn edit-btn">Edit</a></td>
             </tr>
         </tbody>
     </table>
-    <div class="add-film-container">
+    <div class="add-film-container" th:if="${logged}">
         <a href="films/add" class="btn add-btn">Add a film</a>
     </div>
 </div>

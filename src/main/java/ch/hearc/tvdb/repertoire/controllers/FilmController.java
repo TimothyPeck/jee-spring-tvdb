@@ -1,5 +1,7 @@
 package ch.hearc.tvdb.repertoire.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,8 +36,15 @@ public class FilmController {
     private TvdbUsersService tvdbUsersService;
 
     @GetMapping(value = { "/films" })
-    public String showFilmsPage(Model model) {
-        model.addAttribute("films", filmService.getAllFilms());
+    public String showFilmsPage(Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("logged", true);
+            model.addAttribute("films", filmService.getFilmsByUser(user));
+        } else {
+            model.addAttribute("logged", false);
+            model.addAttribute("films", filmService.getAllFilms());
+        }
         return "tvdb-films";
     }
 

@@ -1,5 +1,7 @@
 package ch.hearc.tvdb.repertoire.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import ch.hearc.tvdb.repertoire.model.Site;
+import ch.hearc.tvdb.repertoire.model.TvdbUser;
 import ch.hearc.tvdb.repertoire.service.SitesService;
 
 @Controller
@@ -16,7 +19,13 @@ public class SiteController {
     private SitesService siteService;
 
     @GetMapping(value = { "/site" })
-    public String showSitePage(Model model) {
+    public String showSitePage(Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("logged", true);
+        } else {
+            model.addAttribute("logged", false);
+        }
         model.addAttribute("sites", siteService.getAllSites());
         return "tvdb-sites";
     }

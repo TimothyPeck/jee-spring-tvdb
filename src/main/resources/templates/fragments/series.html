@@ -6,7 +6,7 @@
             <td class="table-middle-col">Release date</td>
             <td class="table-middle-col">Seasons</td>
             <td class="table-middle-col">Episodes</td>
-            <td class="table-right-col">Edit</td>
+            <td class="table-right-col" th:if="${logged}">Edit</td>
         </thead>
         <tbody>
             <tr th:each="series : ${series}">
@@ -14,10 +14,10 @@
                 <td th:text="${series.release_date}" class="table-middle-col"></td>
                 <td th:text="${series.seasons}" class="table-middle-col"></td>
                 <td th:text="${series.episodes}" class="table-middle-col"></td>
-                <td class="table-right-col"><a th:href="@{/series/edit/{id}(id=${series.id})}" class="btn edit-btn">Edit</a></td>
+                <td class="table-right-col" th:if="${logged}"><a th:href="@{/series/edit/{id}(id=${series.id})}" class="btn edit-btn">Edit</a></td>
             </tr>
     </table>
-    <div class="add-series-container">
+    <div class="add-series-container" th:if="${logged}">
         <a href="series/add-series" class="btn add-btn">Add a series</a>
     </div>
 </div>

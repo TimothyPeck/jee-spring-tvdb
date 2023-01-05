@@ -25,12 +25,16 @@
                     </h1>
                     <div class="form-input-container">
                         <div class="input-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" id="email" class="form-input">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" id="username" class="form-input" th:required="required">
                         </div>
                         <div class="input-group">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" id="password" class="form-input">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-input" th:required="required">
+                        </div>
+                        <div class="input-group">
+                            <label for="user_password" class="form-label">Password</label>
+                            <input type="password" name="user_password" id="user_password" class="form-input" th:required="required">
                         </div>
                     </div>
                     <div class="form-btn-container">

@@ -1,11 +1,14 @@
 package ch.hearc.tvdb.repertoire.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import ch.hearc.tvdb.repertoire.model.Director;
+import ch.hearc.tvdb.repertoire.model.TvdbUser;
 import ch.hearc.tvdb.repertoire.service.DirectorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,7 +20,13 @@ public class DirectorController {
     private DirectorService directorService;
 
     @GetMapping(value = { "/director" })
-    public String showDirectorPage(Model model) {
+    public String showDirectorPage(Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("logged", true);
+        } else {
+            model.addAttribute("logged", false);
+        }
         model.addAttribute("directors", directorService.getAllDirectors());
         return "tvdb-directors";
     }
