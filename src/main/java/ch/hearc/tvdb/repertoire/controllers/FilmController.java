@@ -18,7 +18,6 @@ import ch.hearc.tvdb.repertoire.model.TvdbUser;
 import ch.hearc.tvdb.repertoire.service.DirectorService;
 import ch.hearc.tvdb.repertoire.service.FilmsService;
 import ch.hearc.tvdb.repertoire.service.SitesService;
-import ch.hearc.tvdb.repertoire.service.TvdbUsersService;
 
 @Controller
 public class FilmController {
@@ -31,9 +30,6 @@ public class FilmController {
 
     @Autowired
     private DirectorService directorService;
-
-    @Autowired
-    private TvdbUsersService tvdbUsersService;
 
     @GetMapping(value = { "/films" })
     public String showFilmsPage(Model model, HttpSession session) {
@@ -49,7 +45,12 @@ public class FilmController {
     }
 
     @GetMapping(value = { "/films/add" })
-    public String showAddFilmPage(Model model) {
+    public String showAddFilmPage(Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("logged", true);
         model.addAttribute("sites", siteService.getAllSites());
         model.addAttribute("directors", directorService.getAllDirectors());
         System.out.println("FilmController.showAddFilmPage() called");
@@ -58,10 +59,10 @@ public class FilmController {
 
     @PostMapping(value = { "/films/save-film" })
     public String saveFilm(@ModelAttribute Film film, BindingResult errors, Model model, @RequestParam String director,
-            @RequestParam String site) {
+            @RequestParam String site, HttpSession session) {
         Director d = directorService.getDirectorById(Long.valueOf(director));
         Site s = siteService.getSiteById(Long.valueOf(site));
-        TvdbUser u = tvdbUsersService.getUserById(1L);
+        TvdbUser u = (TvdbUser) session.getAttribute("user");
         film.setDirector(d);
         film.setSite(s);
         film.setUser(u);
@@ -70,7 +71,12 @@ public class FilmController {
     }
 
     @GetMapping(value = { "/films/edit/{id}" })
-    public String showEditFilmPage(@ModelAttribute Film film, Model model) {
+    public String showEditFilmPage(@ModelAttribute Film film, Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("logged", true);
         model.addAttribute("film", filmService.getFilmById(film.getId()));
         model.addAttribute("sites", siteService.getAllSites());
         model.addAttribute("directors", directorService.getAllDirectors());
@@ -78,10 +84,11 @@ public class FilmController {
     }
 
     @PostMapping(value = { "/films/edit-film" })
-    public String editFilm(@ModelAttribute Film film, @RequestParam String director, @RequestParam String site) {
+    public String editFilm(@ModelAttribute Film film, @RequestParam String director, @RequestParam String site,
+            HttpSession session) {
         Director d = directorService.getDirectorById(Long.valueOf(director));
         Site s = siteService.getSiteById(Long.valueOf(site));
-        TvdbUser u = tvdbUsersService.getUserById(1L);
+        TvdbUser u = (TvdbUser) session.getAttribute("user");
         film.setDirector(d);
         film.setSite(s);
         film.setUser(u);

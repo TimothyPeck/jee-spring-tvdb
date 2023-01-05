@@ -44,15 +44,21 @@ public class SeriesController {
     }
 
     @GetMapping(value = { "/series/add-series" })
-    public String showAddSeriesPage(Model model) {
+    public String showAddSeriesPage(Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("logged", true);
         model.addAttribute("sites", siteService.getAllSites());
         return "tvdb-series-add";
     }
 
     @PostMapping(value = "/series/save-series")
-    public String saveSeries(@ModelAttribute Series series, BindingResult errors, Model model, @RequestParam int site) {
+    public String saveSeries(@ModelAttribute Series series, BindingResult errors, Model model, @RequestParam int site,
+            HttpSession session) {
         Site s = siteService.getSiteById(Long.valueOf(site));
-        TvdbUser u = tvdbUsersService.getUserById(1L);
+        TvdbUser u = (TvdbUser) session.getAttribute("user");
         series.setSite(s);
         series.setUser(u);
         seriesService.addSeries(series);
@@ -60,16 +66,21 @@ public class SeriesController {
     }
 
     @GetMapping(value = "/series/edit/{id}")
-    public String showEditSeriesPage(@ModelAttribute Series series, Model model) {
+    public String showEditSeriesPage(@ModelAttribute Series series, Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("logged", true);
         model.addAttribute("series", seriesService.getSeriesById(series.getId()));
         model.addAttribute("sites", siteService.getAllSites());
         return "tvdb-series-edit";
     }
 
     @PostMapping(value = "/series/edit-series")
-    public String editSeries(@ModelAttribute Series series, @RequestParam int site) {
+    public String editSeries(@ModelAttribute Series series, @RequestParam int site, HttpSession session) {
         Site s = siteService.getSiteById(Long.valueOf(site));
-        TvdbUser u = tvdbUsersService.getUserById(1L);
+        TvdbUser u = (TvdbUser) session.getAttribute("user");
         seriesService.deleteSeries(series);
         series.setUser(u);
         series.setSite(s);

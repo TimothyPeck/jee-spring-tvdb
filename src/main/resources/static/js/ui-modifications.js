@@ -1,22 +1,22 @@
 $(document).ready(function () {
-    $("#password").on("keyup", function () {
+    $("#password").on("change", function () {
         checkPassword();
     });
 
-    $("#password-verif").on("keyup", function () {
+    $("#password_verif").on("change", function () {
         checkPassword();
     });
 
     function checkPassword() {
         let password = $("#password").val();
-        let passwordVerify = $("#password-verif").val();
+        let passwordVerify = $("#password_verif").val();
         if (passwordVerify.length > 0) {
             if (password === passwordVerify) {
-                $("#password-verif").removeClass("is-invalid");
-                $("#password-verif").addClass("is-valid");
+                $("#password_verif").removeClass("is-invalid");
+                $("#password_verif").addClass("is-valid");
             } else {
-                $("#password-verif").removeClass("is-valid");
-                $("#password-verif").addClass("is-invalid");
+                $("#password_verif").removeClass("is-valid");
+                $("#password_verif").addClass("is-invalid");
             }
         }
     }

@@ -41,7 +41,23 @@ public class UserController {
     }
 
     @GetMapping("/create-account")
-    public String register() {
+    public String register(Model model, HttpSession session) {
+        model.addAttribute("logged", false);
         return "register";
+    }
+
+    @PostMapping("/create-user")
+    public String createUser(@RequestParam String username, @RequestParam String email,
+            @RequestParam String password, @RequestParam String password_verif, HttpSession session) {
+        if (password.equals(password_verif) && userRepository.findByUsername(username) == null) {
+            TvdbUser newUser = new TvdbUser();
+            newUser.setUsername(username);
+            newUser.setEmail(email);
+            newUser.setUser_password(password);
+            userRepository.save(newUser);
+            session.setAttribute("user", newUser);
+            return "redirect:/home";
+        }
+        return "redirect:/create-account";
     }
 }
