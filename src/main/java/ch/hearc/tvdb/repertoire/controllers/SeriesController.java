@@ -14,8 +14,6 @@ import ch.hearc.tvdb.repertoire.model.Site;
 import ch.hearc.tvdb.repertoire.model.TvdbUser;
 import ch.hearc.tvdb.repertoire.service.SeriesService;
 import ch.hearc.tvdb.repertoire.service.SitesService;
-import ch.hearc.tvdb.repertoire.service.TvdbUsersService;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,9 +24,6 @@ public class SeriesController {
 
     @Autowired
     private SitesService siteService;
-
-    @Autowired
-    private TvdbUsersService tvdbUsersService;
 
     @GetMapping(value = { "/series" })
     public String showSeriesPage(Model model, HttpSession session) {
