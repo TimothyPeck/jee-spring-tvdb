@@ -2,8 +2,6 @@ package ch.hearc.tvdb;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,12 +11,10 @@ import ch.hearc.tvdb.repertoire.model.Director;
 import ch.hearc.tvdb.repertoire.model.Film;
 import ch.hearc.tvdb.repertoire.model.Site;
 import ch.hearc.tvdb.repertoire.model.TvdbUser;
-import ch.hearc.tvdb.repertoire.repository.FilmRepository;
 import ch.hearc.tvdb.repertoire.service.DirectorService;
 import ch.hearc.tvdb.repertoire.service.FilmsService;
 import ch.hearc.tvdb.repertoire.service.SitesService;
 import ch.hearc.tvdb.repertoire.service.TvdbUsersService;
-import ch.hearc.tvdb.repertoire.service.implementation.FilmsServiceImplementation;
 
 @SpringBootTest
 class TvdbApplicationTests {
