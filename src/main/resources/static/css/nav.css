@@ -42,7 +42,7 @@ nav {
     max-height: 75px;
 }
 
-@keyframes background-pan{
+@keyframes background-pan {
     from {
         background-position: 0% center;
     }
@@ -57,11 +57,13 @@ nav {
     background: linear-gradient(to right, var(--clr-gradient-1) 0%, var(--clr-gradient-2) 25%, var(--clr-gradient-3) 50%, var(--clr-gradient-2) 75%, var(--clr-gradient-1) 100%);
     background-size: 200%;
     -webkit-background-clip: text;
+    -moz-background-clip: text;
     background-clip: text;
     border-left: none;
     font-size: 4rem;
     color: transparent;
     -webkit-user-select: none;
+    -moz-user-select: none;
     user-select: none;
     letter-spacing: 1rem;
 }

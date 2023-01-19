@@ -68,16 +68,6 @@ class TvdbApplicationTests {
 
 	@Test
 	void canAddFilm() {
-
-		// site.setName("testSite");
-		// site.setUrl("example.com");
-
-		// sitesService.addSite(site);
-
-		// director.setName("test");
-
-		// directorService.addDirector(director);
-
 		film.setTitle("Test");
 		film.setRelease_date(Date.valueOf("2021-01-01"));
 		film.setDuration_minutes(120);
