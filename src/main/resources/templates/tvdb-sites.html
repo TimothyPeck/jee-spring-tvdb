@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TVDB - Sites</title>
-    <script src="https://kit.fontawesome.com/957e86b231.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
-</head>
+    <script
+      src="https://kit.fontawesome.com/957e86b231.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <nav th:replace="~{fragments/navbar :: navbar}"></nav>
     <main>
-        <div class="container">
-            <div th:replace="~{fragments/site :: site-list}"></div>
-        </div>
-
+      <div class="container">
+        <div th:replace="~{fragments/site :: site-list}"></div>
+      </div>
     </main>
     <footer th:replace="~{fragments/footer :: footer}"></footer>
-</body>
-
+  </body>
 </html>
