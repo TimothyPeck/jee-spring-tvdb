@@ -31,7 +31,13 @@ public class SiteController {
     }
 
     @GetMapping(value = { "/site/add-site" })
-    public String showAddSitePage(Model model) {
+    public String showAddSitePage(Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("logged", true);
+        } else {
+            model.addAttribute("logged", false);
+        }
         return "tvdb-sites-add";
     }
 
@@ -42,7 +48,13 @@ public class SiteController {
     }
 
     @GetMapping(value = "/site/edit/{id}")
-    public String showEditSitePage(@ModelAttribute Site site, Model model) {
+    public String showEditSitePage(@ModelAttribute Site site, Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("logged", true);
+        } else {
+            model.addAttribute("logged", false);
+        }
         model.addAttribute("site", siteService.getSiteById(site.getId()));
         return "tvdb-sites-edit";
     }

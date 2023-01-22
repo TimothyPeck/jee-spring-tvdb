@@ -31,7 +31,13 @@ public class DirectorController {
     }
 
     @GetMapping(value = "/directors/add-director")
-    public String getDirectorAdd(Model model) {
+    public String getDirectorAdd(Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("logged", true);
+        } else {
+            model.addAttribute("logged", false);
+        }
         return "tvdb-directors-add";
     }
 
@@ -42,13 +48,25 @@ public class DirectorController {
     }
 
     @GetMapping(value = "/directors/edit/{id}")
-    public String showEditDirectorPage(@ModelAttribute Director director, Model model) {
+    public String showEditDirectorPage(@ModelAttribute Director director, Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("logged", true);
+        } else {
+            model.addAttribute("logged", false);
+        }
         model.addAttribute("director", directorService.getDirectorById(director.getId()));
         return "tvdb-directors-edit";
     }
 
     @PostMapping(value = "/directors/edit-director")
-    public String editDirector(@ModelAttribute Director director) {
+    public String editDirector(@ModelAttribute Director director, Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("logged", true);
+        } else {
+            model.addAttribute("logged", false);
+        }
         directorService.deleteDirector(director);
         directorService.addDirector(director);
         return "redirect:/director";
