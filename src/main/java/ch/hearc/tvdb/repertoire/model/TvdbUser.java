@@ -12,7 +12,7 @@ public class TvdbUser {
     private Long id;
 
     private String username;
-    private String user_password;
+    private String password;
     private String email;
 
     public Long getId() {
@@ -27,12 +27,12 @@ public class TvdbUser {
         return email;
     }
 
-    public String getUser_password() {
-        return user_password;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
+    public void setPassword(String user_password) {
+        this.password = user_password;
     }
 
     public void setId(Long id) {
