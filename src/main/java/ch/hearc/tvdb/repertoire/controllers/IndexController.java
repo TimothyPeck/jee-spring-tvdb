@@ -135,7 +135,7 @@ public class IndexController {
     public void seedUsers() {
         TvdbUser user = new TvdbUser();
         user.setUsername("admin");
-        user.setUser_password("admin");
+        user.setPassword("admin");
         user.setEmail("admin@tvdb.ch");
         tvdbUsersService.saveUser(user);
     }

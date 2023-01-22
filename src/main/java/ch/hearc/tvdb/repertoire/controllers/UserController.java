@@ -33,7 +33,7 @@ public class UserController {
     public String loginUser(@RequestParam String username, @RequestParam String email,
             @RequestParam String user_password, HttpSession session) {
         TvdbUser foundUser = userRepository.findByUsername(username);
-        if (foundUser != null && foundUser.getUser_password().equals(user_password)) {
+        if (foundUser != null && foundUser.getPassword().equals(user_password)) {
             session.setAttribute("user", foundUser);
             return "redirect:/home";
         }
@@ -53,7 +53,7 @@ public class UserController {
             TvdbUser newUser = new TvdbUser();
             newUser.setUsername(username);
             newUser.setEmail(email);
-            newUser.setUser_password(password);
+            newUser.setPassword(password);
             userRepository.save(newUser);
             session.setAttribute("user", newUser);
             return "redirect:/home";
