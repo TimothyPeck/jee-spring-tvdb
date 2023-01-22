@@ -36,7 +36,7 @@ public class DirectorController {
         if (user != null) {
             model.addAttribute("logged", true);
         } else {
-            model.addAttribute("logged", false);
+            return "redirect:/director";
         }
         return "tvdb-directors-add";
     }
@@ -53,7 +53,7 @@ public class DirectorController {
         if (user != null) {
             model.addAttribute("logged", true);
         } else {
-            model.addAttribute("logged", false);
+            return "redirect:/director";
         }
         model.addAttribute("director", directorService.getDirectorById(director.getId()));
         return "tvdb-directors-edit";
@@ -65,7 +65,7 @@ public class DirectorController {
         if (user != null) {
             model.addAttribute("logged", true);
         } else {
-            model.addAttribute("logged", false);
+            return "redirect:/director";
         }
         directorService.deleteDirector(director);
         directorService.addDirector(director);
