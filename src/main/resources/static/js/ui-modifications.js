@@ -7,6 +7,14 @@ $(document).ready(function () {
         checkPassword();
     });
 
+    $("#password").on("input", function () {
+        checkPassword();
+    });
+
+    $("#password_verif").on("input", function () {
+        checkPassword();
+    });
+
     function checkPassword() {
         let password = $("#password").val();
         let passwordVerify = $("#password_verif").val();
