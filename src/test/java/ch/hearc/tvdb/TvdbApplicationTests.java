@@ -58,7 +58,7 @@ class TvdbApplicationTests {
 	@Test
 	void canAddUser() {
 		user.setUsername("test");
-		user.setUser_password("test");
+		user.setPassword("test");
 		user.setEmail("test@test.com");
 
 		userService.saveUser(user);
