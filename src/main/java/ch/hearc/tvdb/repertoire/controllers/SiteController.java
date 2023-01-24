@@ -36,7 +36,7 @@ public class SiteController {
         if (user != null) {
             model.addAttribute("logged", true);
         } else {
-            model.addAttribute("logged", false);
+            return "redirect:/login";
         }
         return "tvdb-sites-add";
     }
@@ -53,7 +53,7 @@ public class SiteController {
         if (user != null) {
             model.addAttribute("logged", true);
         } else {
-            model.addAttribute("logged", false);
+            return "redirect:/login";
         }
         model.addAttribute("site", siteService.getSiteById(site.getId()));
         return "tvdb-sites-edit";
