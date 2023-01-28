@@ -51,8 +51,8 @@
             </tr>
         </tbody>
     </table>
-    <div class="page-film-container">
-        <div class="pagination" th:if="${films.totalPages > 0 }" th:each="pageNumber: ${pageNumbers}">
+    <div class="page-film-container" th:if="${films.totalPages > 0 }">
+        <div class="pagination" th:each="pageNumber: ${pageNumbers}">
             <a th:href="@{/films(page=${pageNumber})}" th:text=${pageNumber}
                 class="page-link" th:classappend="${pageNumber==films.number + 1} ? active"></a>
         </div>

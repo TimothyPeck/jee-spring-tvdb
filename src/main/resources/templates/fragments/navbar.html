@@ -1,18 +1,18 @@
 <nav th:fragment="navbar">
     <div class="nav-section" id="nav-logo-section">
         <!-- <img th:src="@{/images/logo.png}" alt="logo" id="nav-logo"> -->
-        <h1 id="nav-logo">TVDB</h1>
+        <h1 id="nav-logo"><a href="/" class="link-logo">TVDB</a></h1>
     </div>
     <div class="nav-section" id="nav-links-section">
-        <a href="/">Home</a>
-        <a href="/series">Series</a>
-        <a href="/films">Films</a>
-        <a href="/director">Directors</a>
-        <a href="/site">Sites</a>
-        <a href="/about">About</a>
+        <!-- <a href="/">Home</a> -->
+        <a class="link-nav" href="/series">Series</a>
+        <a class="link-nav" href="/films">Films</a>
+        <a class="link-nav" href="/director">Directors</a>
+        <a class="link-nav" href="/site">Sites</a>
+        <a class="link-nav" href="/about">About</a>
     </div>
     <div class="nav-section" id="nav-login-section">
-        <a href="/login" th:if="${!logged}">Login <i class="fa-solid fa-right-to-bracket"></i></a>
-        <a href="/logout" th:if="${logged}">Logout <i class="fa-solid fa-right-to-bracket"></i></a>
+        <a class="link-nav" href="/login" th:if="${!logged}">Login <i class="fa-solid fa-right-to-bracket"></i></a>
+        <a class="link-nav" href="/logout" th:if="${logged}">Logout <i class="fa-solid fa-right-to-bracket"></i></a>
     </div>
 </nav>
