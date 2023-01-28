@@ -108,8 +108,8 @@ class TvdbApplicationTests {
 		filmsService.deleteFilmById(film.getId());
 
 		try {
-			Film del = filmsService.getFilmById(film.getId());
-			System.out.println(del.getTitle());
+			Film f = filmsService.getFilmById(film.getId());
+			System.out.println(f.getTitle());
 		} catch (Exception e) {
 			Assert.isTrue(true, "Film not deleted");
 		}
