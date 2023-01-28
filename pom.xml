@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>ch.hearc</groupId>
 	<artifactId>tvdb</artifactId>
-	<version>1.0.0-COMPLETE</version>
+	<version>1.0.1-COMPLETE</version>
 	<name>tvdb</name>
 	<description>Application to keep a list of films and tv shows for a user</description>
 	<properties>
