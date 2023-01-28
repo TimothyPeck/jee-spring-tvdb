@@ -60,6 +60,41 @@
     z-index: 1;
 }
 
+.page-film-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;  
+    margin-top: 2rem;
+    background-color: var(--clr-accent-border);
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+}
+
+.pagination{
+    margin-inline: 0.5rem;
+    font-size: 1.3rem;
+    color: var(--clr-accent-orange);
+    font-weight: bold;
+}
+
+.page-link:link{
+    color: var(--clr-accent-orange);
+}
+
+.page-link:visited{
+    color: var(--clr-accent-orange);
+}
+
+a.active{
+    color: var(--clr-text) !important;
+    text-decoration: none;
+    cursor: default;
+    -webkit-user-select: none;
+    user-select: none;
+    font-weight: lighter;
+}
+
 .btn {
     display: flex;
     position: relative;
