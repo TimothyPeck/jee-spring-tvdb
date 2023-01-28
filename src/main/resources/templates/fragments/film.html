@@ -15,11 +15,48 @@
                 <td th:text="${film.release_date}" class="table-middle-col"></td>
                 <td th:text="${film.director.name}" class="table-middle-col"></td>
                 <td th:text="${film.duration}" class="table-middle-col"></td>
-                <td class="table-middle-col"><a th:href="${film.site.url}" th:text="${film.site.name}" target="_blank"></a></td>
-                <td class="table-right-col" th:if="${logged}"><a th:href="@{/films/edit/{id}(id=${film.id})}" class="btn edit-btn">Edit</a></td>
+                <td class="table-middle-col"><a th:href="${film.site.url}" th:text="${film.site.name}"
+                        target="_blank"></a></td>
+                <td class="table-right-col" th:if="${logged}"><a th:href="@{/films/edit/{id}(id=${film.id})}"
+                        class="btn edit-btn">Edit</a></td>
             </tr>
         </tbody>
     </table>
+    <div class="add-film-container" th:if="${logged}">
+        <a href="films/add" class="btn add-btn">Add a film</a>
+    </div>
+</div>
+
+<div th:fragment="film-list-paged" class="film-series-container">
+    <h1>Films List</h1>
+    <table>
+        <thead>
+            <td class="table-left-col">Name</td>
+            <td class="table-middle-col">Release date</td>
+            <td class="table-middle-col">Director</td>
+            <td class="table-middle-col">Duration</td>
+            <td class="table-middle-col">Site</td>
+            <td class="table-right-col" th:if="${logged}">Edit</td>
+        </thead>
+        <tbody>
+            <tr th:each="film, iStat : ${films.content}">
+                <td th:text="${film.title}" class="table-left-col"></td>
+                <td th:text="${film.release_date}" class="table-middle-col"></td>
+                <td th:text="${film.director.name}" class="table-middle-col"></td>
+                <td th:text="${film.duration}" class="table-middle-col"></td>
+                <td class="table-middle-col"><a th:href="${film.site.url}" th:text="${film.site.name}"
+                        target="_blank"></a></td>
+                <td class="table-right-col" th:if="${logged}"><a th:href="@{/films/edit/{id}(id=${film.id})}"
+                        class="btn edit-btn">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="page-film-container">
+        <div class="pagination" th:if="${films.totalPages > 0 }" th:each="pageNumber: ${pageNumbers}">
+            <a th:href="@{/films(page=${pageNumber})}" th:text=${pageNumber}
+                class="page-link" th:classappend="${pageNumber==films.number + 1} ? active"></a>
+        </div>
+    </div>
     <div class="add-film-container" th:if="${logged}">
         <a href="films/add" class="btn add-btn">Add a film</a>
     </div>

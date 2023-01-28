@@ -2,6 +2,9 @@ package ch.hearc.tvdb.repertoire.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import ch.hearc.tvdb.repertoire.model.Film;
 import ch.hearc.tvdb.repertoire.model.TvdbUser;
 
@@ -19,4 +22,8 @@ public interface FilmsService {
     public void deleteFilm(Film film);
 
     public List<Film> getFilmsByUser(TvdbUser user);
+
+    public Page<Film> getFilmsPaginated(Pageable pageable);
+
+    public Page<Film> getFilmsByUserPaginated(Pageable pageable, TvdbUser user);
 }

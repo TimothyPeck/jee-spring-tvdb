@@ -2,7 +2,14 @@ package ch.hearc.tvdb.repertoire.controllers;
 
 import jakarta.servlet.http.HttpSession;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,14 +39,27 @@ public class FilmController {
     private DirectorService directorService;
 
     @GetMapping(value = { "/films" })
-    public String showFilmsPage(Model model, HttpSession session) {
+    public String showFilmsPage(Model model, HttpSession session, @RequestParam("page") Optional<Integer> page) {
+        int currentPage = page.orElse(1);
         TvdbUser user = (TvdbUser) session.getAttribute("user");
         if (user != null) {
             model.addAttribute("logged", true);
-            model.addAttribute("films", filmService.getFilmsByUser(user));
+            Page<Film> filmPage = filmService.getFilmsByUserPaginated(PageRequest.of(currentPage - 1, 10), user);
+            int totalPages = filmPage.getTotalPages();
+            if (totalPages > 0) {
+                List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().collect(Collectors.toList());
+                model.addAttribute("pageNumbers", pageNumbers);
+            }
+            model.addAttribute("films", filmPage);
         } else {
             model.addAttribute("logged", false);
-            model.addAttribute("films", filmService.getAllFilms());
+            Page<Film> filmPage = filmService.getFilmsPaginated(PageRequest.of(currentPage - 1, 10));
+            int totalPages = filmPage.getTotalPages();
+            if (totalPages > 0) {
+                List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().collect(Collectors.toList());
+                model.addAttribute("pageNumbers", pageNumbers);
+            }
+            model.addAttribute("films", filmPage);
         }
         return "tvdb-films";
     }
