@@ -36,7 +36,7 @@ public class DirectorController {
         if (user != null) {
             model.addAttribute("logged", true);
         } else {
-            return "redirect:/director";
+            return "redirect:/login";
         }
         return "tvdb-directors-add";
     }
@@ -53,20 +53,14 @@ public class DirectorController {
         if (user != null) {
             model.addAttribute("logged", true);
         } else {
-            return "redirect:/director";
+            return "redirect:/login";
         }
         model.addAttribute("director", directorService.getDirectorById(director.getId()));
         return "tvdb-directors-edit";
     }
 
     @PostMapping(value = "/directors/edit-director")
-    public String editDirector(@ModelAttribute Director director, Model model, HttpSession session) {
-        TvdbUser user = (TvdbUser) session.getAttribute("user");
-        if (user != null) {
-            model.addAttribute("logged", true);
-        } else {
-            return "redirect:/director";
-        }
+    public String editDirector(@ModelAttribute Director director, Model model) {
         directorService.deleteDirector(director);
         directorService.addDirector(director);
         return "redirect:/director";
