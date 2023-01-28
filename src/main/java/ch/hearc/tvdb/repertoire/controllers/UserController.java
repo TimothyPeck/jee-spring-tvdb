@@ -25,8 +25,12 @@ public class UserController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
-        session.invalidate();
-        return "redirect:/login";
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            session.invalidate();
+            return "redirect:/login";
+        }
+        return "redirect:/home";
     }
 
     @PostMapping("/login-user")

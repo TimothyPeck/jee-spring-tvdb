@@ -4,14 +4,16 @@
         <thead>
             <tr>
                 <td class="table-left-col">Name</td>
-                <td class="table-right-col table-edit-col" th:if="${logged}">Edit</td>
+                <td class="table-right-col table-edit-col" th:if="${logged}">Edit or Delete</td>
             </tr>
         </thead>
         <tbody>
             <tr th:each="director: ${directors}">
                 <td th:text="${director.name}" class="table-left-col"></td>
-                <td class="table-right-col table-edit-col" th:if="${logged}"><a th:href="@{/directors/edit/{id}(id=${director.id})}"
-                        class="btn edit-btn">Edit</a></td>
+                <td class="table-right-col table-edit-col" th:if="${logged}">
+                    <a th:href="@{/directors/edit/{id}(id=${director.id})}" class="btn edit-btn">Edit</a>
+                    <a th:href="@{ /directors/delete/{id}(id=${director.id})}" class="btn delete-btn">Delete</a>
+                </td>
             </tr>
         </tbody>
     </table>

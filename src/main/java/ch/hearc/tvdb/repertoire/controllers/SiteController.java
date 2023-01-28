@@ -65,4 +65,10 @@ public class SiteController {
         siteService.addSite(site);
         return "redirect:/site";
     }
+
+    @GetMapping(value = "/site/delete/{id}")
+    public String deleteSite(@ModelAttribute Site site) {
+        siteService.deleteSite(site);
+        return "redirect:/site";
+    }
 }

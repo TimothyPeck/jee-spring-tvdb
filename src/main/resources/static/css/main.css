@@ -131,13 +131,32 @@ a.active{
     margin-right: 0;
     padding: 0.5rem;
     height: 2.2rem;
-    width: 100%;
+    width: 50%;
 }
 
 .edit-btn:hover,
 .edit-btn:focus {
     background-color: var(--clr-accent-rust) !important;
     color: var(--clr-text) !important;
+}
+
+.delete-btn{
+    background-color: red !important;
+    color: var(--clr-text) !important;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0.5rem;
+    height: 2.2rem;
+    width: 50%;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+    background-color: transparent !important;
+    color: red !important;
+    border: 3px solid red;
 }
 
 .button-container {

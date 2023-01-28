@@ -5,15 +5,17 @@
             <tr>
                 <td class="table-left-col">Name</td>
                 <td class="table-middle-col">URL</td>
-                <td class="table-right-col table-edit-col" th:if="${logged}">Edit</td>
+                <td class="table-right-col table-edit-col" th:if="${logged}">Edit or Delete</td>
             </tr>
         </thead>
         <tbody>
             <tr th:each="site: ${sites}">
                 <td th:text="${site.name}" class="table-left-col"></td>
                 <td class="table-middle-col"><a th:href="${site.url}" th:text="${site.url}" target="_blank"></a></td>
-                <td class="table-right-col table-edit-col" th:if="${logged}"><a th:href="@{/site/edit/{id}(id=${site.id})}"
-                        class="btn edit-btn">Edit</a></td>
+                <td class="table-right-col table-edit-col" th:if="${logged}">
+                    <a th:href="@{/site/edit/{id}(id=${site.id})}"class="btn edit-btn">Edit</a>
+                    <a th:href="@{/site/delete/{id}(id=${site.id})}"class="btn delete-btn">Delete</a>
+                </td>
             </tr>
         </tbody>
     </table>

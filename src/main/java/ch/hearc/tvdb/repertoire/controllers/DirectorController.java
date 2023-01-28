@@ -66,4 +66,15 @@ public class DirectorController {
         return "redirect:/director";
     }
 
+    @GetMapping(value = "/directors/delete/{id}")
+    public String deleteDirector(@ModelAttribute Director director, Model model, HttpSession session) {
+        TvdbUser user = (TvdbUser) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("logged", true);
+        } else {
+            return "redirect:/login";
+        }
+        directorService.deleteDirector(director);
+        return "redirect:/director";
+    }
 }
